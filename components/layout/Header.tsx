@@ -1,24 +1,24 @@
 import Image from "next/image";
 import { CiSearch } from "react-icons/ci";
-import CategoryIcons from "./CategoryIcons";
-import { CATEGORYICONS } from "@/constants";
+import { FaUser } from "react-icons/fa";
 
 const Header: React.FC = () => {
   return (
-    <header className="absolute w-full bg-[#FFFFFF]">
-      <nav className="sticky top-0 bg-[#FFFFFF] z-[999] border-b border-[#EBEBEB] py-3 px-3">
-        <div className="container mx-auto flex items-center justify-between">
-          <div>
+    <header className="max-sm:hidden sticky top-0 z-[99] w-full bg-[#FFFFFF]">
+      <nav className=" top- bg-[#FFFFFF] z-[999] border-b border-[#EBEBEB] py-3 px-3 max-sm:pl-2">
+        <div className="max-w-[1500px] mx-auto flex items-center justify-between gap-2 sm:gap-4">
+          <div className="max-sm:hidden shrink-0 w-[46px] md:w-[58px]">
             <Image
               src={"/assets/icon/alx-logo.png"}
               alt="ALX Logo"
               width={58}
               height={40}
+              className="w-full h-full"
             />
           </div>
 
-          <div className="flex justify-between h-full border border-[#F6F6F6] rounded-full py-2 pl-8 pr-[.6875rem]">
-            <div className="space-y-1 min-w-72">
+          <div className="max-sm:hidden min-w-0 w-fit flex justify-between h-full border border-[#F6F6F6] rounded-full py-2 pl-4 lg:pl-8 lg:pr-[.6875rem]">
+            <div className="min-w-0 sm:w-full max-w-36 md:max-w-38 lg:max-w-64 xl:max-w-72">
               <h6 className="text-sm">Location</h6>
               <input
                 type="text"
@@ -28,21 +28,21 @@ const Header: React.FC = () => {
             </div>
 
             {/* Right side search input field */}
-            <div className="flex items-center">
-              <div className="flex items-center gap-5 h-full">
+            <div className="min-w-0 flex items-center">
+              <div className="min-w-0 flex items-center gap-5 h-full">
                 <div className="w-px h-full bg-[#E9E9E9]" />
-                <div className="flex flex-col space-y-1">
+                <div className="min-w-0 flex flex-col">
                   <label className="text-sm w-fit">Check in</label>
                   <input
                     type="text"
-                    className="outline-none text-[.8125rem]"
+                    className="min-w-0 outline-none text-[.8125rem]"
                     placeholder="Add date"
                   />
                 </div>
               </div>
-              <div className="flex items-center gap-5 h-full">
+              <div className="min-w-0 flex items-center gap-5 h-full">
                 <div className="w-px h-full bg-[#E9E9E9]" />
-                <div className="space-y-1">
+                <div className="min-w-0 ">
                   <h6 className="text-sm">Check out</h6>
                   <input
                     type="text"
@@ -51,9 +51,9 @@ const Header: React.FC = () => {
                   />
                 </div>
               </div>
-              <div className="flex items-center gap-5 h-full">
+              <div className="min-w-0 flex items-center gap-5 h-full">
                 <div className="w-px h-full bg-[#E9E9E9]" />
-                <div className="space-y-1 w-fit">
+                <div className="min-w-0 w-fit">
                   <h6 className="text-sm">People</h6>
                   <input
                     type="text"
@@ -62,12 +62,39 @@ const Header: React.FC = () => {
                   />
                 </div>
               </div>
-              <div className="rounded-full size-10.5 bg-[#FFA800] p-2 ml-4 flex items-center justify-center cursor-pointer">
+              <div className="shrink-0 rounded-full size-10.5 bg-[#FFA800] p-2 ml-4 flex items-center justify-center cursor-pointer">
                 <CiSearch className="text-white size-full" />
               </div>
             </div>
           </div>
-          <div className="space-x-2">
+          <div className="min-w-0 sm:hidden flex items-center border border-[#F6F6F6] rounded-full py-2 pl-6 pr-2">
+             <div className="min-w-0 flex flex-col">
+                <p className="text-sm text-black w-fit">Where to</p>
+                <div className="flex items-center justify-evenly min-w-0">
+                  <input
+                  type="text"
+                  className="flex-1 min-w-0 outline-none text-[.8125rem]"
+                  placeholder="Location"
+                  />
+                  <div className="size-1 shrink-0 bg-black rounded-full" />
+                  <input
+                  type="text"
+                  className="flex-1 text-center min-w-0 outline-none text-[.8125rem]"
+                  placeholder="Location"
+                  />
+                  <div className="size-1 shrink-0 bg-black rounded-full" />
+                  <input
+                  type="text"
+                  className="flex-1 text-center min-w-0 outline-none text-[.8125rem]"
+                  placeholder="Location"
+                  />
+                </div>
+              </div>
+              <div className="shrink-0 rounded-full size-8 sm:size-9 md:size-10.5 bg-[#FFA800] p-2 ml-4 flex items-center justify-center cursor-pointer">
+                <CiSearch className="text-white size-full" />
+              </div>
+          </div>
+          <div className="shrink-0 flex gap-2 max-lg:hidden">
             <button
               type="button"
               className="bg-[#34967C] py-3 px-7 rounded-full text-white"
@@ -81,15 +108,13 @@ const Header: React.FC = () => {
               Sign up
             </button>
           </div>
+          <div className="lg:hidden shrink-0 size-8 sm:size-9 md:size-11 rounded-full bg-[#34967C] p-0.5">
+            <div className="w-full h-full rounded-full ring ring-white grid place-content-center">
+              <FaUser className="text-white text-xl md:text-2xl" />
+            </div>
+          </div>
         </div>
       </nav>
-      <div className="sticky -top-10 container mx-auto flex items-center justify-between px-3 lg:px-0 overflow-x-auto gap-8 py-4">
-        {
-            CATEGORYICONS.map((item, index) => (
-                <CategoryIcons key={index} icon={item.icon} label={item.label} active={index === 3} />
-            ))
-        }
-      </div>
     </header>
   );
 };

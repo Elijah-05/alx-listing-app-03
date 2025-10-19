@@ -14,7 +14,7 @@ const CategoryIcons = ({ icon, label, active, onClick }: CategoryIconProps) => {
         alt={label}
         width={34}
         height={34}
-        className="h-9 w-9 object-contain"
+        className="size-6 md:size-8 lg:size-9 object-contain"
       />
       <span className="font-medium text-xs text-[#616161]">{label}</span>
       {active && (

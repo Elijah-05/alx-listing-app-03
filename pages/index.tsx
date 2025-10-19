@@ -1,6 +1,7 @@
 import Card from "@/components/common/Card";
 import Pill from "@/components/common/Pill";
-import { PROPERTYLISTINGSAMPLE } from "@/constants";
+import CategoryIcons from "@/components/layout/CategoryIcons";
+import { CATEGORYICONS, PROPERTYLISTINGSAMPLE } from "@/constants";
 import { Geist, Geist_Mono } from "next/font/google";
 import { useState } from "react";
 
@@ -28,6 +29,13 @@ export default function Home() {
 
   return (
     <div className={`${geistSans.className} ${geistMono.className} `}>
+       <div className="max-sm:hidden sticky -top-10 max-w-[1500px] mx-auto flex items-center justify-between lg:px-0 overflow-x-auto gap-8 py-4 px-4">
+        {
+            CATEGORYICONS.map((item, index) => (
+                <CategoryIcons key={index} icon={item.icon} label={item.label} active={index === 3} />
+            ))
+        }
+      </div>
       <div className="container mx-auto px-0">
         {/* Hero Banner */}
         <div
